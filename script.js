@@ -30,11 +30,8 @@ const appendText = (label = "Default") => {
     let deleteBtn = document.createElement('button');
     deleteBtn.setAttribute('class', 'btn btn-danger delete-btn ms-2');
     deleteBtn.textContent = 'Delete';
-    
-    deleteBtn.addEventListener('click', () => {
-        elem.remove();
-        deleteBtn.remove();
-    });
+    deleteBtn.style.display = 'none';
+
 
     let container = document.createElement('div');
     container.setAttribute('class', 'goat d-flex justify-content-between');
@@ -42,6 +39,20 @@ const appendText = (label = "Default") => {
     container.appendChild(deleteBtn);
 
     document.querySelector('#displaytext').appendChild(container);
+        
+    deleteBtn.addEventListener('click', () => {
+        elem.remove();
+        deleteBtn.remove();
+    });
+
+    container.addEventListener('mouseover', () => {
+        deleteBtn.style.display = 'inline-block';
+      });
+    
+      // hide the delete button and x button when the mouse leaves the container
+      container.addEventListener('mouseout', () => {
+        deleteBtn.style.display = 'none';
+      });
 }
 
 const appendButton = (label = "Default") => {
@@ -56,17 +67,29 @@ const appendButton = (label = "Default") => {
     let deleteBtn = document.createElement('button')
     deleteBtn.setAttribute('class', 'btn btn-danger delete-btn ms-2')
     deleteBtn.textContent = 'Delete'
-    deleteBtn.addEventListener('click', () => {
-        elem.remove()
-        deleteBtn.remove()
-    })
 
     let container = document.createElement('div');
     container.setAttribute('class', 'goat d-flex justify-content-between');
     container.appendChild(elem);
     container.appendChild(deleteBtn);
+    deleteBtn.style.display = 'none';
 
     document.querySelector('#displaybutton').appendChild(container);
+
+    
+    deleteBtn.addEventListener('click', () => {
+        elem.remove();
+        deleteBtn.remove();
+    });
+
+    container.addEventListener('mouseover', () => {
+        deleteBtn.style.display = 'inline-block';
+      });
+    
+      // hide the delete button and x button when the mouse leaves the container
+      container.addEventListener('mouseout', () => {
+        deleteBtn.style.display = 'none';
+      });
 
 }
 
@@ -82,10 +105,7 @@ const appendTextField = (label = "Default") => {
     let deleteBtn = document.createElement('button')
     deleteBtn.setAttribute('class', 'btn btn-danger delete-btn')
     deleteBtn.textContent = 'Delete'
-    deleteBtn.addEventListener('click', () => {
-        elem.remove()
-        deleteBtn.remove()
-    })
+    deleteBtn.style.display = 'none';
 
     let container = document.createElement('div');
     container.setAttribute('class', 'goat d-flex justify-content-between align-items-center');
@@ -93,6 +113,20 @@ const appendTextField = (label = "Default") => {
     container.appendChild(deleteBtn);
 
     document.querySelector('#displaytextfield').appendChild(container);
+
+    deleteBtn.addEventListener('click', () => {
+        elem.remove();
+        deleteBtn.remove();
+    });
+
+    container.addEventListener('mouseover', () => {
+        deleteBtn.style.display = 'inline-block';
+      });
+    
+      // hide the delete button and x button when the mouse leaves the container
+      container.addEventListener('mouseout', () => {
+        deleteBtn.style.display = 'none';
+      });
 
 }
 
@@ -110,18 +144,14 @@ const appendCheckbox = (label = "Default") => {
     elemLabel.textContent = label;
 
     let container1 = document.createElement('div')
-    container1.setAttribute('class', 'goat form-check d-flex align-items-center justify-content-center')
+    container1.setAttribute('class', 'goat form-check')
     container1.append(elem,elemLabel)
     document.querySelector('#displaycheckbox').append(container1)
 
     let deleteBtn = document.createElement('button')
     deleteBtn.setAttribute('class', 'btn btn-danger delete-btn ms-2')
-    deleteBtn.textContent = 'Delete'
-    deleteBtn.addEventListener('click', () => {
-        elem.remove()
-        elemLabel.remove()
-        deleteBtn.remove()
-    })
+    deleteBtn.textContent = 'Delete'    
+    deleteBtn.style.display = 'none';
     
     let container = document.createElement('div');
     container.setAttribute('class', 'd-flex justify-content-between');
@@ -130,6 +160,20 @@ const appendCheckbox = (label = "Default") => {
     container.appendChild(deleteBtn);
 
     document.querySelector('#displaycheckbox').appendChild(container);
+    deleteBtn.addEventListener('click', () => {
+        elem.remove();
+        deleteBtn.remove();
+        elemLabel.remove();
+    });
+
+    container.addEventListener('mouseover', () => {
+        deleteBtn.style.display = 'inline-block';
+      });
+    
+      // hide the delete button and x button when the mouse leaves the container
+      container.addEventListener('mouseout', () => {
+        deleteBtn.style.display = 'none';
+      });
 }
 
 const appendRadio = (label = "Default") => {
@@ -153,18 +197,30 @@ const appendRadio = (label = "Default") => {
     let deleteBtn = document.createElement('button')
     deleteBtn.setAttribute('class', 'btn btn-danger delete-btn ms-2')
     deleteBtn.textContent = 'Delete'
-    deleteBtn.addEventListener('click', () => {
-        elem.remove()
-        elemLabel.remove()
-        deleteBtn.remove()
-    })
+    deleteBtn.style.display = 'none';
     let container = document.createElement('div');
+
     container.setAttribute('class', 'd-flex justify-content-between');
     container.appendChild(elem);
     container.appendChild(elemLabel);
     container.appendChild(deleteBtn);
 
     document.querySelector('#displayradio').appendChild(container);
+
+    deleteBtn.addEventListener('click', () => {
+        elem.remove();
+        deleteBtn.remove();
+        elemLabel.remove();
+    });
+
+    container.addEventListener('mouseover', () => {
+        deleteBtn.style.display = 'inline-block';
+      });
+    
+      // hide the delete button and x button when the mouse leaves the container
+      container.addEventListener('mouseout', () => {
+        deleteBtn.style.display = 'none';
+      });
 }
 
 const appendFile = (label = "Default") => {
@@ -185,11 +241,8 @@ const appendFile = (label = "Default") => {
     let deleteBtn = document.createElement('button')
     deleteBtn.setAttribute('class', 'btn btn-danger delete-btn ms-2')
     deleteBtn.textContent = 'Delete'
-    deleteBtn.addEventListener('click', () => {
-        elem.remove()
-        elemLabel.remove()
-        deleteBtn.remove()
-    })    
+    deleteBtn.style.display = 'none';
+
     let container = document.createElement('div');
     container.setAttribute('class', 'goat d-flex justify-content-between');
     container.appendChild(elem);
@@ -197,6 +250,21 @@ const appendFile = (label = "Default") => {
     container.appendChild(deleteBtn);
 
     document.querySelector('#displayfile').appendChild(container);
+    
+    deleteBtn.addEventListener('click', () => {
+        elem.remove();
+        deleteBtn.remove();
+        elemLabel.remove();
+    });
+
+    container.addEventListener('mouseover', () => {
+        deleteBtn.style.display = 'inline-block';
+      });
+    
+      // hide the delete button and x button when the mouse leaves the container
+      container.addEventListener('mouseout', () => {
+        deleteBtn.style.display = 'none';
+      });
 }
 
 const makeElementDraggable = (element) => {
@@ -251,3 +319,4 @@ const makeElementDraggable = (element) => {
         el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)"
     }
 }
+
